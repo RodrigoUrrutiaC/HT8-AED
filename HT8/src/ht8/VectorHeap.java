@@ -66,18 +66,12 @@ public class VectorHeap<E extends Comparable<E>> extends PriorityQueue<E>
 		}
 		data.set(leaf,value);
 	}
+        
+        @Override
         public boolean add(E e) {
             return offer(e);
         }
-/*
-	public void add(E value)
-	// pre: value is non-null comparable
-	// post: value is added to priority queue
-	{
-		data.add(value);
-		percolateUp(data.size()-1);
-	}
-*/
+
 	protected void pushDownRoot(int root)
 	// pre: 0 <= root < size
 	// post: moves node at index root down

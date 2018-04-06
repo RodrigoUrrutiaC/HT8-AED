@@ -14,7 +14,7 @@ import java.io.IOException;
 public class Hospital1 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        String nombre, estado, prioridad;
+        String nombre, descripcion, codigo;
         VectorHeap<Paciente> pq = new VectorHeap<>();
         
         FileReader fr;
@@ -31,13 +31,13 @@ public class Hospital1 {
             nombre = linea.substring(0, lugar1);
             String resto = linea.substring(lugar1+2);
             int lugar2 = resto.indexOf(',');
-            estado = resto.substring(0, lugar2);
-            prioridad = resto.substring(lugar2+2);
+            descripcion = resto.substring(0, lugar2);
+            codigo = resto.substring(lugar2+2);
             System.out.println(linea);
-            Paciente enfermo = new Paciente(nombre, estado, prioridad);
+            Paciente enfermo = new Paciente(nombre, descripcion, codigo);
             pq.add(enfermo);
         }
-        
+
         System.out.println("\nPacientes atendidos en orden: \n");
         while(!pq.isEmpty()){
             Paciente siguiente = pq.remove();
